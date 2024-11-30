@@ -1,25 +1,16 @@
 const express = require("express");
+const { getContacts, createContact, getContact, updateContact, deleteContact } = require("../controllers/contactController");
 const router = express.Router();
 
 
-router.route("/").get((req, res) => {
-    res.json({message: "Get all contacts (not yet implemented)"});
-});
+router.route("/").get(getContacts);
 
-router.route("/").post((req, res) => {
-    res.json({message: "Create a new Conatct (noy yet implemented)"});
-})
+router.route("/").post(createContact);
 
-router.route("/:id").get((req, res) => {
-    res.json({message: `Get contact by id: ${req.params.id} (not yet implemented)`});
-})
+router.route("/:id").get(getContact);
 
-router.route("/:id").put((req, res) => {
-    res.json({message: `Update contact by id: ${req.params.id} (not yet implemented)`});
-})
+router.route("/:id").put(updateContact);
 
-router.route("/:id").delete((req, res) => {
-    res.json({message: `Delete contact with ID: ${req.params.id} (not yet implemented)`});
-})
+router.route("/:id").delete(deleteContact);
 
 module.exports = router;
